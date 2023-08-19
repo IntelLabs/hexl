@@ -9,6 +9,7 @@
 #include "hexl/number-theory/number-theory.hpp"
 #include "hexl/util/check.hpp"
 #include "util/cpu-features.hpp"
+//#include <omp.h>
 
 namespace intel {
 namespace hexl {
@@ -27,7 +28,7 @@ void EltwiseAddModNative(uint64_t* result, const uint64_t* operand1,
   HEXL_CHECK_BOUNDS(operand2, n, modulus,
                     "pre-add value in operand2 exceeds bound " << modulus);
 
-  HEXL_LOOP_UNROLL_4
+//  HEXL_LOOP_UNROLL_4
   for (size_t i = 0; i < n; ++i) {
     uint64_t sum = *operand1 + *operand2;
     if (sum >= modulus) {
@@ -40,6 +41,30 @@ void EltwiseAddModNative(uint64_t* result, const uint64_t* operand1,
     ++operand2;
     ++result;
   }
+
+
+//#pragma omp parallel
+//{
+//  size_t i;
+//    const uint64_t* local_operand1;
+//    const uint64_t* local_operand2;
+//  uint64_t* local_result;
+//
+//  #pragma omp for private(i, local_operand1, local_operand2, local_result)
+//  for (i = 0; i < n; ++i) {
+//    local_operand1 = operand1 + i;
+//    local_operand2 = operand2 + i;
+//    local_result = result + i;
+//
+//    uint64_t sum = *local_operand1 + *local_operand2;
+//    if (sum >= modulus) {
+//      *local_result = sum - modulus;
+//    } else {
+//      *local_result = sum;
+//    }
+//  }
+//}
+
 }
 
 void EltwiseAddModNative(uint64_t* result, const uint64_t* operand1,
@@ -55,7 +80,7 @@ void EltwiseAddModNative(uint64_t* result, const uint64_t* operand1,
 
   uint64_t diff = modulus - operand2;
 
-  HEXL_LOOP_UNROLL_4
+//  HEXL_LOOP_UNROLL_4
   for (size_t i = 0; i < n; ++i) {
     if (*operand1 >= diff) {
       *result = *operand1 - diff;
@@ -66,6 +91,25 @@ void EltwiseAddModNative(uint64_t* result, const uint64_t* operand1,
     ++operand1;
     ++result;
   }
+    
+//    #pragma omp parallel
+//    {
+//      size_t i;
+//      const uint64_t* local_operand1;
+//      uint64_t* local_result;
+//
+//      #pragma omp for private(i, local_operand1, local_result)
+//      for (i = 0; i < n; ++i) {
+//        local_operand1 = operand1 + i;
+//        local_result = result + i;
+//
+//        if (*local_operand1 >= diff) {
+//          *local_result = *local_operand1 - diff;
+//        } else {
+//          *local_result = *local_operand1 + operand2;
+//        }
+//      }
+//    }
 }
 
 void EltwiseAddMod(uint64_t* result, const uint64_t* operand1,
