@@ -60,8 +60,11 @@ jobs:
         shell: bash
     strategy:
       matrix:
+        # removed platforms not available on github hosted servers.
+        # sel-fhosted ice-lake servers not enabled by sysadmin
         # os: [ice-lake, [self-hosted, ubuntu-18.04], macos-latest, ubuntu-20.04]
-        os: [ice-lake, macos-latest, ubuntu-20.04]
+        # os: [macos-latest, ubuntu-20.04]
+        os: [macos-latest, ubuntu-20.04]
         build_type: [Release, Debug]
         shared_lib: [ON, OFF]
         include:
@@ -185,7 +188,11 @@ jobs:
         shell: bash
     strategy:
       matrix:
-        os: [ice-lake]
+        # Ice-lake platform not available on github
+        # self-hosted platforms disabled by Intel github sys admin
+        # building on default ubuntu-22.04 platform
+        # os: [ice-lake]
+        os: [ubuntu-22.04]
         build_type: [Release]
         shared_lib: [ON]
     steps:
