@@ -30,8 +30,8 @@ env:
       -DHEXL_HINT_DIR=${GITHUB_WORKSPACE}/lib/cmake/hexl-${HEXL_VER}
   COVERAGE_COMPILER_FLAGS: >
       -DCMAKE_BUILD_TYPE=Debug
-      -DCMAKE_CXX_COMPILER=g++-9
-      -DCMAKE_C_COMPILER=gcc-9
+      -DCMAKE_CXX_COMPILER=g++-11
+      -DCMAKE_C_COMPILER=gcc-11
       -DHEXL_BENCHMARK=ON
       -DHEXL_TESTING=ON
       -DHEXL_COVERAGE=ON
@@ -42,7 +42,7 @@ env:
 jobs:
   format:
     name: Format
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
       # Required for pre-commit
@@ -64,7 +64,7 @@ jobs:
         # sel-fhosted ice-lake servers not enabled by sysadmin
         # os: [ice-lake, [self-hosted, ubuntu-18.04], macos-latest, ubuntu-20.04]
         # os: [macos-latest, ubuntu-20.04]
-        os: [macos-latest, ubuntu-20.04]
+        os: [macos-latest, ubuntu-22.04]
         build_type: [Release, Debug]
         shared_lib: [ON, OFF]
         include:
@@ -86,8 +86,8 @@ jobs:
         run: |
           set -x
           if [ "$RUNNER_OS" == "Linux" ]; then
-            export CC=clang-10
-            export CXX=clang++-10
+            export CC=clang-11
+            export CXX=clang++-11
           fi
 
           # Print information useful for debugging
@@ -201,8 +201,8 @@ jobs:
         run: |
           set -x
           if [ "$RUNNER_OS" == "Linux" ]; then
-            export CC=clang-10
-            export CXX=clang++-10
+            export CC=clang-11
+            export CXX=clang++-11
           fi
 
           # Print information useful for debugging
