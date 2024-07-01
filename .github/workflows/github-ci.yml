@@ -86,8 +86,8 @@ jobs:
         run: |
           set -x
           if [ "$RUNNER_OS" == "Linux" ]; then
-            export CC=gcc-11
-            export CXX=gcc++-11
+            export CC=clang-14
+            export CXX=clang++-14
           fi
 
           # Print information useful for debugging
