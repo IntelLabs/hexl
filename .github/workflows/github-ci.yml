@@ -188,11 +188,13 @@ jobs:
         shell: bash
     strategy:
       matrix:
+        # This is an unsupported experimental build - use at your own risk
+        #
         # Ice-lake platform not available on github
         # self-hosted platforms disabled by Intel github sys admin
-        # building on default ubuntu-22.04 platform
+        # building on default ubuntu-20.04 platform
         # os: [ice-lake]
-        os: [ubuntu-22.04]
+        os: [ubuntu-20.04]
         build_type: [Release]
         shared_lib: [ON]
     steps:
@@ -201,8 +203,8 @@ jobs:
         run: |
           set -x
           if [ "$RUNNER_OS" == "Linux" ]; then
-            export CC=clang-14
-            export CXX=clang++-14
+            export CC=clang-11
+            export CXX=clang++-11
           fi
 
           # Print information useful for debugging
