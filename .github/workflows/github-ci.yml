@@ -20,6 +20,10 @@ on:
   # Manually run this workflow on any specified branch.
   workflow_dispatch:
 
+# Set top-level permission as read only
+permissions:
+  contents: read
+
 ###################
 # Define env vars #
 ###################
