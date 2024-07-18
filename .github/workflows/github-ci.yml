@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 name: Build and Test
+permissions: read-all
 on:
   # By default this will run when the activity type is "opened", "synchronize",
   # or "reopened".
@@ -55,6 +56,7 @@ jobs:
   nix-build:
     name: '${{ matrix.os }} ${{ matrix.build_type }} shared=${{ matrix.shared_lib }}'
     runs-on: '${{ matrix.os }}'
+    permissions: write # required for actions/upload-artifacts@v2
     defaults:
       run:
         shell: bash
