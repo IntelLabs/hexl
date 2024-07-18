@@ -56,7 +56,8 @@ jobs:
   nix-build:
     name: '${{ matrix.os }} ${{ matrix.build_type }} shared=${{ matrix.shared_lib }}'
     runs-on: '${{ matrix.os }}'
-    permissions: write # required for actions/upload-artifacts@v2
+    permissions: 
+      contents: write # required for actions/upload-artifacts@v2
     defaults:
       run:
         shell: bash
