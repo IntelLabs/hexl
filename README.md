@@ -1,4 +1,4 @@
-[![Build and Test](https://github.com/intel/hexl/actions/workflows/github-ci.yml/badge.svg?branch=main)](https://github.com/intel/hexl/actions/workflows/github-ci.yml)
+[![Build and Test](https://github.com/intel/hexl/actions/workflows/github-ci.yml/badge.svg)](https://github.com/intel/hexl/actions/workflows/github-ci.yml)
 
 # Intel Homomorphic Encryption (HE) Acceleration Library
 Intel:registered: HE Acceleration Library is an open-source library which
