@@ -81,8 +81,8 @@ void EltwiseReduceModAVX512(uint64_t* result, const uint64_t* operand,
         __m512i v_op = _mm512_loadu_si512(v_operand);
         v_op = _mm512_hexl_barrett_reduce64<BitShift, 2>(
             v_op, v_modulus, v_bf, v_bf_52, prod_right_shift, v_neg_mod);
-        HEXL_CHECK_BOUNDS(ExtractValues(v_op).data(), 8, modulus,
-                          "v_op exceeds bound " << modulus);
+        HEXL_CHECK_BOUNDS(ExtractValues(v_op).data(), 8, twice_mod,
+                          "v_op exceeds bound " << twice_mod);
         _mm512_storeu_si512(v_result, v_op);
         ++v_operand;
         ++v_result;
