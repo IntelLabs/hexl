@@ -146,7 +146,7 @@ jobs:
       - name: Archive benchmark results
         uses: actions/upload-artifact@v4
         with:
-          name: bench_hexl_${{github.sha}}_${{ github.run_id }}_${{ github.job }}.csv
+          name: bench_hexl_${{github.sha}}_${{github.run_id}}_${{github.job}}_${{os}}_${{build_type}}_${{shared_lib}}
           path: ${{ github.workspace }}/${{ github.workflow }}_${{ github.sha }}
           retention-days: 90 # Maximum for free version
 
