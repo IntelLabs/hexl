@@ -142,7 +142,7 @@ jobs:
           # set +x
 
       - name: Archive benchmark results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: bench_hexl_${{github.sha}}.csv
           path: ${{ github.workspace }}/${{ github.workflow }}_${{ github.sha }}
