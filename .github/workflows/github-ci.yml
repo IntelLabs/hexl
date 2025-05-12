@@ -45,11 +45,11 @@ jobs:
     name: Format
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       # Required for pre-commit
       - run: pip3 install cpplint==1.5.5
       # NOTE: This is deprecated in favor of pre-commit.ci
-      - uses: pre-commit/action@v2.0.2
+      - uses: pre-commit/action@v3.0.1
         with:
           extra_args: --all-files
 
@@ -64,10 +64,7 @@ jobs:
     strategy:
       matrix:
         # removed platforms not available on github hosted servers.
-        # sel-fhosted ice-lake servers not enabled by sysadmin
-        # os: [ice-lake, [self-hosted, ubuntu-18.04], macos-latest, ubuntu-20.04]
-        # os: [macos-latest, ubuntu-20.04]
-        os: [macos-latest, ubuntu-22.04]
+        os: [ubuntu-22.04]
         build_type: [Release, Debug]
         shared_lib: [ON, OFF]
         include:
@@ -76,9 +73,6 @@ jobs:
             benchmark_min_time: "--benchmark_min_time=0.001"
           - build_type: Release
             benchmark_min_time: ""
-        exclude: # Skip debug on Mac. TODO: add Debug mode
-          - os: macos-latest
-            build_type: Debug
     steps:
       - uses: actions/checkout@v2
       - name: Setup cmake
@@ -142,9 +136,9 @@ jobs:
           # set +x
 
       - name: Archive benchmark results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
-          name: bench_hexl_${{github.sha}}.csv
+          name: bench_hexl_${{github.sha}}_${{github.run_id}}_${{github.job}}_${{matrix.os}}_${{matrix.build_type}}_Shared_${{matrix.shared_lib}}
           path: ${{ github.workspace }}/${{ github.workflow }}_${{ github.sha }}
           retention-days: 90 # Maximum for free version
 
@@ -182,53 +176,3 @@ jobs:
           build/${{ matrix.build_type}}/example.exe
 
           # TODO: add pkgconfig and vcpkg examples
-
-  experimental-build:
-    name: 'experimental: ${{ matrix.os }} ${{ matrix.build_type }} shared=${{ matrix.shared_lib }}'
-    runs-on: '${{ matrix.os }}'
-    defaults:
-      run:
-        shell: bash
-    strategy:
-      matrix:
-        # This is an unsupported experimental build - use at your own risk
-        #
-        # Ice-lake platform not available on github
-        # self-hosted platforms disabled by Intel github sys admin
-        # building on default ubuntu-20.04 platform
-        # os: [ice-lake]
-        os: [ubuntu-20.04]
-        build_type: [Release]
-        shared_lib: [ON]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Default build
-        run: |
-          set -x
-          if [ "$RUNNER_OS" == "Linux" ]; then
-            export CC=clang-11
-            export CXX=clang++-11
-          fi
-
-          # Print information useful for debugging
-          whoami
-          echo $HOME
-          echo $GITHUB_WORKSPACE
-          echo "Testing from branch:"
-          echo $GITHUB_REFH
-          cmake --version
-          pwd
-
-          # Build library
-          cmake -S . -B build -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}  \
-            -DHEXL_SHARED_LIB=${{ matrix.shared_lib }} \
-            -DCMAKE_INSTALL_PREFIX=./ \
-            -DHEXL_EXPERIMENTAL=ON
-          cmake --build build -j
-          cmake --build build --target install
-          cmake --build build --target unittest
-          # Instead of calling cmake --build build --target bench,
-          # we run the executable directly to pass command-line arguments
-          ./build/benchmark/bench_hexl \
-            --benchmark_out="${GITHUB_WORKFLOW}_${GITHUB_SHA}" \
-            --benchmark_out_format=csv
