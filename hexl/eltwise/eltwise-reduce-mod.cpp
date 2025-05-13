@@ -35,7 +35,7 @@ void EltwiseReduceModNative(uint64_t* result, const uint64_t* operand,
   if (input_mod_factor == modulus) {
     if (output_mod_factor == 2) {
       for (size_t i = 0; i < n; ++i) {
-        if (operand[i] >= modulus) {
+        if (operand[i] >= twice_modulus) {
           result[i] = BarrettReduce64<2>(operand[i], modulus, barrett_factor);
         } else {
           result[i] = operand[i];

@@ -35,6 +35,29 @@ TEST(EltwiseReduceMod, avx512_64_mod_1) {
   CheckEqual(result, exp_out);
 }
 
+TEST(EltwiseReduceMod, avx512_64_mod_2) {
+  if (!has_avx512dq) {
+    GTEST_SKIP();
+  }
+
+  std::vector<uint64_t> op{18399319504785536384ULL, 17772833711639413686ULL,
+                           12597119745262224203ULL, 1504294004559805751ULL,
+                           11357185129558358846ULL, 15524763729212309524ULL,
+                           15578066193709346988ULL, 9262080163435001663ULL};
+
+  std::vector<uint64_t> exp_out{1282985348605, 701667589612,  1154521301334,
+                                519986957540,  1153052298859, 914113932554,
+                                1255706689604, 1229762981307};
+  std::vector<uint64_t> result{0, 0, 0, 0, 0, 0, 0, 0};
+
+  uint64_t modulus = 1099511590913;
+  const uint64_t input_mod_factor = modulus;
+  const uint64_t output_mod_factor = 2;
+  EltwiseReduceModAVX512<64>(result.data(), op.data(), op.size(), modulus,
+                             input_mod_factor, output_mod_factor);
+  CheckEqual(result, exp_out);
+}
+
 TEST(EltwiseReduceModMontInOut, avx512_64_mod_1) {
   if (!has_avx512dq) {
     GTEST_SKIP();
@@ -78,6 +101,29 @@ TEST(EltwiseReduceMod, avx512_52_mod_1) {
   uint64_t modulus = 769;
   const uint64_t input_mod_factor = modulus;
   const uint64_t output_mod_factor = 1;
+  EltwiseReduceModAVX512<52>(result.data(), op.data(), op.size(), modulus,
+                             input_mod_factor, output_mod_factor);
+  CheckEqual(result, exp_out);
+}
+
+TEST(EltwiseReduceMod, avx512_52_mod_2) {
+  if (!has_avx512ifma) {
+    GTEST_SKIP();
+  }
+
+  std::vector<uint64_t> op{18399319504785536384ULL, 17772833711639413686ULL,
+                           12597119745262224203ULL, 1504294004559805751ULL,
+                           11357185129558358846ULL, 15524763729212309524ULL,
+                           15578066193709346988ULL, 9262080163435001663ULL};
+
+  std::vector<uint64_t> exp_out{183473757692,  701667589612,  1154521301334,
+                                519986957540,  1153052298859, 914113932554,
+                                1255706689604, 130251390394};
+  std::vector<uint64_t> result{0, 0, 0, 0, 0, 0, 0, 0};
+
+  uint64_t modulus = 1099511590913;
+  const uint64_t input_mod_factor = modulus;
+  const uint64_t output_mod_factor = 2;
   EltwiseReduceModAVX512<52>(result.data(), op.data(), op.size(), modulus,
                              input_mod_factor, output_mod_factor);
   CheckEqual(result, exp_out);
