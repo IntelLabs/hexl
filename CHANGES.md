@@ -9,7 +9,7 @@
 - Updates to CI/CD
 - Add SECURITY.md for OSSF Scorecard compliance
 - Added workflow permissions to meet OpenSSF Scorecard requirements
-  
+
 ## Version 1.2.5
 - Adds experimental FFT-like (https://github.com/intel/hexl/pull/104)
 - Adds big moduli tests for IFMA (https://github.com/intel/hexl/pull/123)
