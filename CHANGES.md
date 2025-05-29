@@ -1,7 +1,16 @@
 # Changes
 
-## Version 1.2.5
+## Version 1.2.6
+- Update documentation to make a reference to OpenFHE
+- Complies with Clang-Format +11
+- Fixes EltwiseFMAMod Failing on 52 bits modulus (https://github.com/IntelLabs/hexl/pull/136)
+- Fixes Check Bounds for avx512 reduction mod_2 (https://github.com/IntelLabs/hexl/pull/153)
+- Fixes Destructor error (https://github.com/IntelLabs/hexl/pull/159)
+- Updates to CI/CD
+- Add SECURITY.md for OSSF Scorecard compliance
+- Added workflow permissions to meet OpenSSF Scorecard requirements
 
+## Version 1.2.5
 - Adds experimental FFT-like (https://github.com/intel/hexl/pull/104)
 - Adds big moduli tests for IFMA (https://github.com/intel/hexl/pull/123)
 - Fixes HEXL's example build (https://github.com/intel/hexl/pull/114)

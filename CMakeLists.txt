@@ -3,7 +3,7 @@
 
 # target_link_options and cmake -S . -B build require cmake 3.13
 cmake_minimum_required(VERSION 3.13)
-project(HEXL VERSION 1.2.5 LANGUAGES C CXX)
+project(HEXL VERSION 1.2.6 LANGUAGES C CXX)
 
 include(CheckCCompilerFlag)
 include(CheckCXXCompilerFlag)
@@ -66,6 +66,15 @@ if (NOT HEXL_FPGA_COMPATIBILITY)
     set(HEXL_FPGA_COMPATIBILITY "0" CACHE INTERNAL "Set FPGA compatibility mask" FORCE)
 endif()
 
+# Get the current working branch
+execute_process(
+  COMMAND git rev-parse --abbrev-ref HEAD
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+  OUTPUT_VARIABLE GIT_BRANCH
+  OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+
+message(STATUS "HEXL BRANCH:                   ${GIT_BRANCH}")
 message(STATUS "CMAKE_BUILD_TYPE:              ${CMAKE_BUILD_TYPE}")
 message(STATUS "CMAKE_C_COMPILER:              ${CMAKE_C_COMPILER}")
 message(STATUS "CMAKE_CXX_COMPILER:            ${CMAKE_CXX_COMPILER}")
