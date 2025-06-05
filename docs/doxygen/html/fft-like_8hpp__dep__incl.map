@@ -1,0 +1,6 @@
+<map id="fft&#45;like.hpp" name="fft&#45;like.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="242,5,334,32"/>
+<area shape="rect" id="node2" href="$fwd-fft-like-avx512_8hpp.html" title=" " alt="" coords="5,80,179,107"/>
+<area shape="rect" id="node3" href="$inv-fft-like-avx512_8hpp.html" title=" " alt="" coords="203,80,373,107"/>
+<area shape="rect" id="node4" href="$hexl_8hpp.html" title=" " alt="" coords="398,80,477,107"/>
+</map>

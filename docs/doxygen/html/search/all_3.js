@@ -1,0 +1,9 @@
+var searchData=
+[
+  ['deallocate_30',['deallocate',['../structintel_1_1hexl_1_1MallocStrategy.html#af45ff5d0c9b1e867fac481f447a4569c',1,'intel::hexl::MallocStrategy::deallocate()'],['../classintel_1_1hexl_1_1AlignedAllocator.html#af370e3d86c582bcf1370656080bab1ec',1,'intel::hexl::AlignedAllocator::deallocate()'],['../structintel_1_1hexl_1_1AllocatorBase.html#a0f03686f9b78728d4d228ceaf4c2948e',1,'intel::hexl::AllocatorBase::deallocate()'],['../structintel_1_1hexl_1_1AllocatorInterface.html#a2684feec3b8f3cfba626b46912b4cec5',1,'intel::hexl::AllocatorInterface::deallocate()']]],
+  ['deallocate_5fimpl_31',['deallocate_impl',['../structintel_1_1hexl_1_1FFTLike_1_1AllocatorAdapter.html#aef3a3577fe28b825958870962fb27931',1,'intel::hexl::FFTLike::AllocatorAdapter::deallocate_impl()'],['../structintel_1_1hexl_1_1NTT_1_1AllocatorAdapter.html#a123aa02665ce9f2b219ca9b88164e114',1,'intel::hexl::NTT::AllocatorAdapter::deallocate_impl()']]],
+  ['defines_2ehpp_32',['defines.hpp',['../defines_8hpp.html',1,'']]],
+  ['dyadic_2dmultiply_2dinternal_2ehpp_33',['dyadic-multiply-internal.hpp',['../dyadic-multiply-internal_8hpp.html',1,'']]],
+  ['dyadic_2dmultiply_2ehpp_34',['dyadic-multiply.hpp',['../dyadic-multiply_8hpp.html',1,'']]],
+  ['dyadicmultiply_35',['DyadicMultiply',['../namespaceintel_1_1hexl_1_1internal.html#ad2644cb3a69617ae9f78f13255b75c5c',1,'intel::hexl::internal::DyadicMultiply()'],['../namespaceintel_1_1hexl.html#a9dac95c59ed59c3d6e13f521d14e2efd',1,'intel::hexl::DyadicMultiply()']]]
+];

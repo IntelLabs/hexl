@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['false_51',['FALSE',['../namespaceintel_1_1hexl.html#abdcc9d2d5bb10fa95d5f143874508006a946003f97ccc52d5d3b54ac0ec31bbfc',1,'intel::hexl']]],
+  ['fft_2dlike_2davx512_2dutil_2ehpp_52',['fft-like-avx512-util.hpp',['../fft-like-avx512-util_8hpp.html',1,'']]],
+  ['fft_2dlike_2dnative_2ehpp_53',['fft-like-native.hpp',['../fft-like-native_8hpp.html',1,'']]],
+  ['fft_2dlike_2ehpp_54',['fft-like.hpp',['../fft-like_8hpp.html',1,'']]],
+  ['fftlike_55',['FFTLike',['../classintel_1_1hexl_1_1FFTLike.html#afda43d18ae9ba1989083f5391cbbb2af',1,'intel::hexl::FFTLike::FFTLike()=default'],['../classintel_1_1hexl_1_1FFTLike.html#a7beb4e1a9a05a91b9113e4d67a165d81',1,'intel::hexl::FFTLike::FFTLike(uint64_t degree, double *in_scalar, std::shared_ptr&lt; AllocatorBase &gt; alloc_ptr={})'],['../classintel_1_1hexl_1_1FFTLike.html#a689ea5dad6ada31a6842da3a87a5f4ac',1,'intel::hexl::FFTLike::FFTLike(uint64_t degree, double *in_scalar, Allocator &amp;&amp;a, AllocatorArgs &amp;&amp;... args)'],['../classintel_1_1hexl_1_1FFTLike.html',1,'intel::hexl::FFTLike']]],
+  ['forward_5ffftlike_5ftobitreverseradix2_56',['Forward_FFTLike_ToBitReverseRadix2',['../namespaceintel_1_1hexl.html#aa89452f02ae8600c855cca3faae9a466',1,'intel::hexl']]],
+  ['fwd_2dfft_2dlike_2davx512_2ehpp_57',['fwd-fft-like-avx512.hpp',['../fwd-fft-like-avx512_8hpp.html',1,'']]]
+];

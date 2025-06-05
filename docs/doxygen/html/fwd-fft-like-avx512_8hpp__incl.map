@@ -1,0 +1,19 @@
+<map id="fwd&#45;fft&#45;like&#45;avx512.hpp" name="fwd&#45;fft&#45;like&#45;avx512.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="123,5,297,32"/>
+<area shape="rect" id="node2" href="$fft-like_8hpp.html" title=" " alt="" coords="131,80,289,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,177,84,203"/>
+<area shape="rect" id="node4" href="$inv-fft-like-avx512_8hpp.html" title=" " alt="" coords="109,169,311,211"/>
+<area shape="rect" id="node5" href="$aligned-allocator_8hpp.html" title=" " alt="" coords="335,177,551,203"/>
+<area shape="rect" id="node16" href="$allocator_8hpp.html" title=" " alt="" coords="743,266,906,293"/>
+<area shape="rect" id="node6" title=" " alt="" coords="125,266,191,293"/>
+<area shape="rect" id="node7" title=" " alt="" coords="215,266,293,293"/>
+<area shape="rect" id="node8" title=" " alt="" coords="149,348,212,375"/>
+<area shape="rect" id="node9" href="$number-theory_8hpp.html" title=" " alt="" coords="368,259,519,300"/>
+<area shape="rect" id="node14" href="$defines_8hpp.html" title=" " alt="" coords="510,497,665,524"/>
+<area shape="rect" id="node10" title=" " alt="" coords="265,497,336,524"/>
+<area shape="rect" id="node11" title=" " alt="" coords="287,348,346,375"/>
+<area shape="rect" id="node12" href="$check_8hpp.html" title=" " alt="" coords="371,348,516,375"/>
+<area shape="rect" id="node15" href="$compiler_8hpp.html" title=" " alt="" coords="506,423,669,449"/>
+<area shape="rect" id="node13" href="$types_8hpp.html" title=" " alt="" coords="339,423,481,449"/>
+<area shape="rect" id="node17" title=" " alt="" coords="789,348,860,375"/>
+</map>
