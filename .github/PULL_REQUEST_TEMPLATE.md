@@ -21,7 +21,7 @@ the PR. If you are unsure about any of them, do not hesitate to ask. We are
 here to help! This is simply a reminder of what we are going to look for before
 merging your code._
 
-- [ ] I have read the [CONTRIBUTING](https://github.com/IntelLabs/encrypted-computing-sdk/blob/main/CONTRIBUTING.md) agreement
+- [ ] I have read the [CONTRIBUTING](https://github.com/IntelLabs/hexl/blob/development/CONTRIBUTING.md) agreement
 - [ ] Current formatting and unit tests / base functionality passes locally with my changes
 - [ ] I have added tests that prove my fix is effective or that my feature works (if appropriate)
 - [ ] I have added necessary documentation (if appropriate)
